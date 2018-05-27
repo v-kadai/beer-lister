@@ -71,7 +71,7 @@ $.getJSON(apiUrl, function (data) {
             $('.item-row').show();
         } else {
             let value = $(this).val();
-            let itemHide = $('.item-row').not("[name*='" + value + "']");
+            let itemHide = $('.item-row').not("[data-name*='" + value + "']");
             if (value) {
                 if (itemHide) {
                     itemHide.hide();
@@ -83,7 +83,7 @@ $.getJSON(apiUrl, function (data) {
     function Display (list) {
         let items = list.map(item =>
             `
-                <tr class="item-row" name="${item.name}" id="${item.id}" data-toggle="modal" data-target="#itemDetailsModal">
+                <tr class="item-row" data-name="${item.name}" id="${item.id}" data-toggle="modal" data-target="#itemDetailsModal">
                     <td class="text-center">${item.id}</td>
                     <td>
                         <div class="item-wrapper text-center">
